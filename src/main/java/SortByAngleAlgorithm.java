@@ -36,26 +36,14 @@ public class SortByAngleAlgorithm {
     public List<Vector> findBestOrder(){
         MergeSorter mergeSorter = new MergeSorter(vectorList);
 
-        mergeSorter.sort(true, MergeSorter.Sorting.X1, 0, vectorList.size()-1);
+        mergeSorter.sort(true, 0, vectorList.size()-1);
         for (int i = 0; i < vectorList.size()-1; i++){
             isTheBest();
             shiftVectors();
         }
 
 
-        mergeSorter.sort(false, MergeSorter.Sorting.X1, 0, vectorList.size()-1);
-        for (int i = 0; i < vectorList.size()-1; i++){
-            isTheBest();
-            shiftVectors();
-        }
-
-        mergeSorter.sort(true, MergeSorter.Sorting.Y1, 0, vectorList.size()-1);
-        for (int i = 0; i < vectorList.size()-1; i++){
-            isTheBest();
-            shiftVectors();
-        }
-
-        mergeSorter.sort(false, MergeSorter.Sorting.Y1, 0, vectorList.size()-1);
+        mergeSorter.sort(false, 0, vectorList.size()-1);
         for (int i = 0; i < vectorList.size()-1; i++){
             isTheBest();
             shiftVectors();

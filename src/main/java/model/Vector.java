@@ -6,8 +6,7 @@ public class Vector {
     private double yStart = 0;
     private double xSteps;
     private double ySteps;
-    private double xAngle1;
-    private double yAngle1;
+    private double xAngle;
 
     //tmp
     private String name;
@@ -16,7 +15,6 @@ public class Vector {
         this.xSteps = xSteps;
         this.ySteps = ySteps;
         this.setxAngle();
-        this.setyAngle();
         this.name = name;
     }
 
@@ -36,12 +34,8 @@ public class Vector {
         return ySteps;
     }
 
-    public double getxAngle1() {
-        return xAngle1;
-    }
-
-    public double getyAngle1() {
-        return yAngle1;
+    public double getxAngle() {
+        return xAngle;
     }
 
     public String getName() {
@@ -58,20 +52,11 @@ public class Vector {
 
     private void setxAngle() {
         if (ySteps < 0 || (ySteps == 0 && xSteps >= 0)) {
-            this.xAngle1 = 2 * Math.PI + Math.atan2(ySteps, xSteps);
+            this.xAngle = 2 * Math.PI + Math.atan2(ySteps, xSteps);
         } else {
-            this.xAngle1 = Math.atan2(ySteps, xSteps);
+            this.xAngle = Math.atan2(ySteps, xSteps);
         }
-        this.xAngle1 = Math.toDegrees(this.xAngle1);
-    }
-
-    private void setyAngle() {
-        if (xSteps < 0 || (xSteps == 0 && ySteps >= 0)) {
-            this.yAngle1 = 2 * Math.PI + Math.atan2(xSteps, ySteps);
-        } else {
-            this.yAngle1 = Math.atan2(xSteps, ySteps);
-        }
-        this.yAngle1 = Math.toDegrees(this.yAngle1);
+        this.xAngle = Math.toDegrees(this.xAngle);
     }
 
 }

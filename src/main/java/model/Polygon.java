@@ -1,5 +1,6 @@
 package model;
 
+import config.LoggerConfig;
 import model.LineSegment;
 import model.Vertex;
 import utils.LineCrossingDetector;
@@ -26,7 +27,7 @@ public class Polygon {
                 LineSegment addedLineSegment = new LineSegment(vectors.get(i).getxStart(), vectors.get(i).getyStart(),
                         vectors.get(i).getxStart() + vectors.get(i).getxSteps(),
                         vectors.get(i).getyStart() + vectors.get(i).getySteps());
-                for (int j = 0; j < vertices.size() - 1; j++) {
+                for (int j = 0; j < (vertices.size()-2); j++) {
 
                     LineSegment lineSegment = new LineSegment(vertices.get(j).getX(), vertices.get(j).getY(),
                             vertices.get(j + 1).getX(), vertices.get(j + 1).getY());
@@ -37,6 +38,7 @@ public class Polygon {
                                 crossingPoint.getY() == 0) {
                             break;
                         } else {
+                            LoggerConfig.LOGGER.info("Crossing point: " + crossingPoint.getX() + " " + crossingPoint.getY());
                             throw new NotAPolygonException();
                         }
                     }

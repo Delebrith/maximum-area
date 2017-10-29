@@ -23,14 +23,14 @@ public class Main {
 //        Vector vector7 = new Vector(0, -1, "g");
 //        Vector vector8 = new Vector(1, -1, "h");
 //
-//        System.out.println(Math.toDegrees(vector1.getxAngle1()) + ":" + Math.toDegrees(vector1.getyAngle1()));
-//        System.out.println(Math.toDegrees(vector2.getxAngle1()) + ":" + Math.toDegrees(vector2.getyAngle1()));
-//        System.out.println(Math.toDegrees(vector3.getxAngle1()) + ":" + Math.toDegrees(vector3.getyAngle1()));
-//        System.out.println(Math.toDegrees(vector4.getxAngle1()) + ":" + Math.toDegrees(vector4.getyAngle1()));
-//        System.out.println(Math.toDegrees(vector5.getxAngle1()) + ":" + Math.toDegrees(vector5.getyAngle1()));
-//        System.out.println(Math.toDegrees(vector6.getxAngle1()) + ":" + Math.toDegrees(vector6.getyAngle1()));
-//        System.out.println(Math.toDegrees(vector7.getxAngle1()) + ":" + Math.toDegrees(vector7.getyAngle1()));
-//        System.out.println(Math.toDegrees(vector8.getxAngle1()) + ":" + Math.toDegrees(vector8.getyAngle1()));
+//        System.out.println(Math.toDegrees(vector1.getxAngle()) + ":" + Math.toDegrees(vector1.getyAngle1()));
+//        System.out.println(Math.toDegrees(vector2.getxAngle()) + ":" + Math.toDegrees(vector2.getyAngle1()));
+//        System.out.println(Math.toDegrees(vector3.getxAngle()) + ":" + Math.toDegrees(vector3.getyAngle1()));
+//        System.out.println(Math.toDegrees(vector4.getxAngle()) + ":" + Math.toDegrees(vector4.getyAngle1()));
+//        System.out.println(Math.toDegrees(vector5.getxAngle()) + ":" + Math.toDegrees(vector5.getyAngle1()));
+//        System.out.println(Math.toDegrees(vector6.getxAngle()) + ":" + Math.toDegrees(vector6.getyAngle1()));
+//        System.out.println(Math.toDegrees(vector7.getxAngle()) + ":" + Math.toDegrees(vector7.getyAngle1()));
+//        System.out.println(Math.toDegrees(vector8.getxAngle()) + ":" + Math.toDegrees(vector8.getyAngle1()));
 //
 //        list1.add(vector2);
 //        list1.add(vector4);
@@ -46,13 +46,13 @@ public class Main {
 //        sortByAngleAlgorithm.sort(true,true,0, list1.size()-1);
 //        for (int i = 0; i < list1.size(); i++){
 //            System.out.println(sortByAngleAlgorithm.getVectorList().get(i).getName() + " " +
-//                    Math.toDegrees(sortByAngleAlgorithm.getVectorList().get(i).getxAngle1()));
+//                    Math.toDegrees(sortByAngleAlgorithm.getVectorList().get(i).getxAngle()));
 //        }
 //        System.out.println("X descending:");
 //        sortByAngleAlgorithm.sort(false,true,0, list1.size()-1);
 //        for (int i = 0; i < list1.size(); i++){
 //            System.out.println(sortByAngleAlgorithm.getVectorList().get(i).getName() + " " +
-//                    Math.toDegrees(sortByAngleAlgorithm.getVectorList().get(i).getxAngle1()));
+//                    Math.toDegrees(sortByAngleAlgorithm.getVectorList().get(i).getxAngle()));
 //        }
 //        System.out.println("Y ascending:");
 //        sortByAngleAlgorithm.sort(true,false,0, list1.size()-1);
@@ -154,8 +154,7 @@ public class Main {
 
         for (int i = 0; i < vectors4.size(); i++){
             System.out.println(vectors4.get(i).getName() + " " + vectors4.get(i).getxSteps() + " "
-                    + vectors4.get(i).getySteps() + " " + vectors4.get(i).getxAngle1() + " "
-                    + vectors4.get(i).getyAngle1());
+                    + vectors4.get(i).getySteps() + " " + vectors4.get(i).getxAngle());
         }
 
         permutationAlgorithm = new PermutationAlgorithm(vectors4);

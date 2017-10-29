@@ -7,42 +7,39 @@ import java.util.List;
 
 public class MergeSorter {
 
-    private static List<Vector> vectorList;
-
-    public enum Sorting{X1, Y1}
+    private List<Vector> vectorList;
 
     public MergeSorter(List<Vector> vectorList) {
         this.vectorList = vectorList;
     }
 
+    public List<Vector> getVectorList() {
+        return vectorList;
+    }
+
     /**
      *
-     * @param direction ascending = 0; descending = 1;
-     * @param sortingMode
+     * @param direction ascending = true; descending = false;
      * @param firstIndex
      * @param lastIndex
      */
-    public static void sort(boolean direction, Sorting sortingMode, int firstIndex, int lastIndex){
+    public void sort(boolean direction, int firstIndex, int lastIndex){
         if (firstIndex < lastIndex){
             int middleIndex = (firstIndex + lastIndex) /2;
-            sort(direction, sortingMode, firstIndex, middleIndex);
-            sort(direction, sortingMode, middleIndex + 1, lastIndex);
-            if (sortingMode == Sorting.X1){
-                mergeX1(direction, firstIndex, middleIndex, lastIndex);
-            } else {
-                mergeY1(direction, firstIndex, middleIndex, lastIndex);
-            }
+            sort(direction, firstIndex, middleIndex);
+            sort(direction, middleIndex + 1, lastIndex);
+            merge(direction, firstIndex, middleIndex, lastIndex);
         }
     }
 
-    private static void mergeX1(boolean direction, int firstIndex, int middleIndex, int lastIndex){
+    private void merge(boolean direction, int firstIndex, int middleIndex, int lastIndex){
         ArrayList<Vector> tmpList = new ArrayList<>(vectorList);
         int i = firstIndex;
         int j = middleIndex + 1;
         int k = firstIndex;
         if (direction){
             while (i <= middleIndex && j <= lastIndex){
-                if (tmpList.get(i).getxAngle1() < tmpList.get(j).getxAngle1()){
+                if (tmpList.get(i).getxAngle() < tmpList.get(j).getxAngle()){
                     vectorList.set(k++, tmpList.get(i++));
                 } else {
                     vectorList.set(k++, tmpList.get(j++));
@@ -53,7 +50,7 @@ public class MergeSorter {
             }
         } else {
             while (i <= middleIndex && j <= lastIndex){
-                if (tmpList.get(i).getxAngle1() > tmpList.get(j).getxAngle1()){
+                if (tmpList.get(i).getxAngle() > tmpList.get(j).getxAngle()){
                     vectorList.set(k++, tmpList.get(i++));
                 } else {
                     vectorList.set(k++, tmpList.get(j++));
@@ -65,33 +62,4 @@ public class MergeSorter {
         }
     }
 
-    private static void mergeY1(boolean direction, int firstIndex, int middleIndex, int lastIndex){
-        ArrayList<Vector> tmpList = new ArrayList<>(vectorList);
-        int i = firstIndex;
-        int j = middleIndex + 1;
-        int k = firstIndex;
-        if (direction){
-            while (i <= middleIndex && j <= lastIndex){
-                if (tmpList.get(i).getyAngle1() < tmpList.get(j).getyAngle1()){
-                    vectorList.set(k++, tmpList.get(i++));
-                } else {
-                    vectorList.set(k++, tmpList.get(j++));
-                }
-            }
-            while (i <= middleIndex){
-                vectorList.set(k++, tmpList.get(i++));
-            }
-        } else {
-            while (i <= middleIndex && j <= lastIndex){
-                if (tmpList.get(i).getyAngle1() > tmpList.get(j).getyAngle1()){
-                    vectorList.set(k++, tmpList.get(i++));
-                } else {
-                    vectorList.set(k++, tmpList.get(j++));
-                }
-            }
-            while (i <= middleIndex){
-                vectorList.set(k++, tmpList.get(i++));
-            }
-        }
-    }
 }
