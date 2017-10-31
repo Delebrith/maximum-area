@@ -16,11 +16,9 @@ public class LoggerConfig {
             LOGGER.addHandler(fileHandler);
             SimpleFormatter formatter = new SimpleFormatter();
             fileHandler.setFormatter(formatter);
-            // the following statement is used to log any messages
-            LOGGER.info("Logger initiated.");
-
         } catch (SecurityException | IOException e) {
             e.printStackTrace();
         }
     }
 }
+
