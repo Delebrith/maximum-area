@@ -83,7 +83,7 @@ public class Main {
 
 
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(vectors);
-        permutationAlgorithm.bestPermutation();
+        permutationAlgorithm.findBestPermutation();
 
         SortByAngleAlgorithm sortByAngleAlgorithm = new SortByAngleAlgorithm(vectors);
         List<Vector> bestOrder = sortByAngleAlgorithm.findBestOrder();
@@ -105,7 +105,7 @@ public class Main {
 
 
         permutationAlgorithm = new PermutationAlgorithm(vectors2);
-        permutationAlgorithm.bestPermutation();
+        permutationAlgorithm.findBestPermutation();
 
         sortByAngleAlgorithm = new SortByAngleAlgorithm(vectors2);
         List<Vector> bestOrder2 = sortByAngleAlgorithm.findBestOrder();
@@ -137,7 +137,7 @@ public class Main {
 //
 //        permutationAlgorithm = new PermutationAlgorithm(vectors3);
 //        permutationAlgorithm.initPermutationList();
-//        permutationAlgorithm.bestPermutation();
+//        permutationAlgorithm.findBestPermutation();
 //
 //        sortByAngleAlgorithm = new SortByAngleAlgorithm(vectors3);
 //        List<Vector> bestOrder3 = sortByAngleAlgorithm.findBestOrder();
@@ -158,7 +158,7 @@ public class Main {
         }
 
         permutationAlgorithm = new PermutationAlgorithm(vectors4);
-        permutationAlgorithm.bestPermutation();
+        permutationAlgorithm.findBestPermutation();
         System.out.println("Best permutation: ");
         for (int i = 0; i < permutationAlgorithm.getBestPermutation().size(); i++){
             System.out.print(permutationAlgorithm.getBestPermutation().get(i).getName() + " ");

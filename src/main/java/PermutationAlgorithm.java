@@ -36,7 +36,7 @@ public class PermutationAlgorithm {
         return maxArea;
     }
 
-    public void bestPermutation(){
+    public void findBestPermutation(){
         for (List<Vector> list : permutations) {
             try {
                 Polygon polygon = new Polygon(list);
