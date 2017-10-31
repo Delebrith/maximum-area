@@ -2,6 +2,7 @@ import junit.framework.TestCase;
 import model.Vector;
 import org.junit.Before;
 import org.junit.Test;
+import utils.VectorGenerator;
 
 import java.util.ArrayList;
 
@@ -83,6 +84,23 @@ public class TestSortByAngleAlgorithm {
 
         TestCase.assertTrue(contains(permutationAlgorithm, sortByAngleAlgorithm));
         TestCase.assertEquals(POLYGON_AREA, sortByAngleAlgorithm.getMaxArea());
+    }
+
+    @Test
+    public void randomPolygon(){
+        VectorGenerator generator = new VectorGenerator(9);
+        ArrayList<Vector> polygon = generator.generateList();
+
+
+        PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(polygon);
+        permutationAlgorithm.findBestPermutation();
+
+        SortByAngleAlgorithm sortByAngleAlgorithm = new SortByAngleAlgorithm(polygon);
+        sortByAngleAlgorithm.findBestOrder();
+
+        TestCase.assertTrue(contains(permutationAlgorithm, sortByAngleAlgorithm));
+        TestCase.assertEquals(permutationAlgorithm.getMaxArea(), sortByAngleAlgorithm.getMaxArea());
+
     }
 
 }
