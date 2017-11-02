@@ -8,7 +8,7 @@ public class Vector {
     private double ySteps;
     private double xAngle;
 
-    //tmp
+    //for testing
     private String name;
 
     public Vector(double xSteps, double ySteps, String name) {

@@ -43,7 +43,7 @@ public class TestPermutationAlgorithm {
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(hexagon);
         permutationAlgorithm.findBestPermutation();
 
-        TestCase.assertTrue(permutationAlgorithm.acceptablePermutations.contains(result));
+        TestCase.assertTrue(permutationAlgorithm.getAcceptablePermutations().contains(result));
         TestCase.assertEquals(permutationAlgorithm.getMaxArea(), HEXAGON_AREA);
     }
 
@@ -60,7 +60,7 @@ public class TestPermutationAlgorithm {
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(sixVectorsPolygon);
         permutationAlgorithm.findBestPermutation();
 
-        TestCase.assertTrue(permutationAlgorithm.acceptablePermutations.contains(result));
+        TestCase.assertTrue(permutationAlgorithm.getAcceptablePermutations().contains(result));
         TestCase.assertEquals(permutationAlgorithm.getMaxArea(), POLYGON_AREA);
 
     }

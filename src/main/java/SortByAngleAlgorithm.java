@@ -9,20 +9,19 @@ import model.Vector;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SortByAngleAlgorithm {
 
+    private final Logger LOGGER = Logger.getLogger("MyLogger");
+
     private List<Vector> vectorList;
     private List<Vector> bestOrder;
-    double maxArea = 0;
+    private double maxArea = 0;
 
 
     public SortByAngleAlgorithm(List<Vector> vectorList) {
         this.vectorList = vectorList;
-    }
-
-    public List<Vector> getVectorList() {
-        return vectorList;
     }
 
     public List<Vector> getBestOrder() {
@@ -50,10 +49,10 @@ public class SortByAngleAlgorithm {
         }
 
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < bestOrder.size(); i++){
-            builder.append(bestOrder.get(i).getName() + " ");
+        for (Vector aBestOrder : bestOrder) {
+            builder.append(aBestOrder.getName() + " ");
         }
-        LoggerConfig.LOGGER.info("Best order: " + builder.toString() + "area: " + maxArea);
+        LOGGER.info("Best order: " + builder.toString() + "area: " + maxArea);
         return bestOrder;
     }
 
@@ -66,7 +65,7 @@ public class SortByAngleAlgorithm {
                 bestOrder = new ArrayList<>(vectorList);
             }
         } catch (NotAPolygonException e){
-            LoggerConfig.LOGGER.log(Level.FINER, e.getMessage());
+            LOGGER.log(Level.FINER, e.getMessage());
         }
     }
 

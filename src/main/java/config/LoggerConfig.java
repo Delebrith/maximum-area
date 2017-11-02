@@ -7,8 +7,8 @@ import java.util.logging.SimpleFormatter;
 
 public class LoggerConfig {
 
-    public static final Logger LOGGER = Logger.getLogger("Logger");
-    public static FileHandler fileHandler;
+    private static final Logger LOGGER = Logger.getLogger("MyLogger");
+    private static FileHandler fileHandler;
 
     public static void init(){
         try {

@@ -11,12 +11,12 @@ import java.util.List;
 
 public class Polygon {
 
-    List<Vertex> vertices = new ArrayList<>();
+    private List<Vertex> vertices = new ArrayList<>();
 
     public Polygon(List<Vector> vectors) throws NotAPolygonException {
         int notAddedVertices = 0;
-        boolean addLast;
         vertices.add(new Vertex(0,0));
+
         for (int i = 0; i < vectors.size(); i++) {
             if (i != 0){
                 vectors.get(i).setxStart(vectors.get(i-1).getxStart() + vectors.get(i-1).getxSteps());
@@ -38,7 +38,6 @@ public class Polygon {
                                 crossingPoint.getY() == 0) {
                             break;
                         } else {
-                            LoggerConfig.LOGGER.info("Crossing point: " + crossingPoint.getX() + " " + crossingPoint.getY());
                             throw new NotAPolygonException();
                         }
                     }

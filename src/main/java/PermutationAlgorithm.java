@@ -8,24 +8,23 @@ import model.Vector;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PermutationAlgorithm {
+
+    private final Logger LOGGER = Logger.getLogger("MyLogger");
 
     private List<Vector> vectors;
     private List<List<Vector>> permutations = new ArrayList<>();
     private List<Vector> bestPermutation;
     private double maxArea;
 
-    public List<List<Vector>> acceptablePermutations = new ArrayList<>();
+    private List<List<Vector>> acceptablePermutations = new ArrayList<>();
 
     public PermutationAlgorithm(List<Vector> vectors) {
         this.vectors = vectors;
         maxArea = 0;
-        permute(vectors, 0);
-    }
-
-    public List<Vector> getBestPermutation() {
-        return bestPermutation;
+        permute(this.vectors, 0);
     }
 
     public List<List<Vector>> getAcceptablePermutations() {
@@ -47,10 +46,10 @@ public class PermutationAlgorithm {
                 }
             } catch (NotAPolygonException e) {
                 StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < list.size(); i++){
-                    builder.append(list.get(i).getName() + " ");
+                for (Vector aList : list) {
+                    builder.append(aList.getName() + " ");
                 }
-                LoggerConfig.LOGGER.info("For permutation: " + builder.toString()+ " " + e.getMessage());
+                LOGGER.info("For permutation: " + builder.toString()+ " " + e.getMessage());
             }
         }
         for (List<Vector> list : permutations) {
@@ -61,14 +60,14 @@ public class PermutationAlgorithm {
                     acceptablePermutations.add(new ArrayList<>(list));
                 }
             } catch (NotAPolygonException e) {
-                LoggerConfig.LOGGER.log(Level.FINER, e.getMessage());
+                LOGGER.log(Level.FINER, e.getMessage());
             }
         }
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < bestPermutation.size(); i++){
-            builder.append(bestPermutation.get(i).getName() + " ");
+        for (Vector aBestPermutation : bestPermutation) {
+            builder.append(aBestPermutation.getName() + " ");
         }
-        LoggerConfig.LOGGER.info("Best permutation: " + builder.toString() + "area: " + maxArea);
+        LOGGER.info("Best permutation: " + builder.toString() + "area: " + maxArea);
         builder.delete(0, builder.length());
         for (int i = 0; i < acceptablePermutations.size(); i++){
             builder.append(i + "# ");
@@ -77,7 +76,7 @@ public class PermutationAlgorithm {
             }
             builder.append("\n");
         }
-        LoggerConfig.LOGGER.info("Acceptable permutations: \n" + builder.toString());
+        LOGGER.info("Acceptable permutations: \n" + builder.toString());
 
 
     }
