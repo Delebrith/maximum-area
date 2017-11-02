@@ -1,8 +1,5 @@
 package model;
 
-import config.LoggerConfig;
-import model.LineSegment;
-import model.Vertex;
 import utils.LineCrossingDetector;
 import exceptions.NotAPolygonException;
 

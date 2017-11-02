@@ -1,10 +1,7 @@
-import config.LoggerConfig;
 import exceptions.NotAPolygonException;
 import model.Polygon;
 import model.Vector;
 import utils.MergeSorter;
-import model.Polygon;
-import model.Vector;
 
 import java.util.ArrayList;
 import java.util.List;

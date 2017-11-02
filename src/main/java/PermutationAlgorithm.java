@@ -1,7 +1,4 @@
-import config.LoggerConfig;
 import exceptions.NotAPolygonException;
-import model.Polygon;
-import model.Vector;
 import model.Polygon;
 import model.Vector;
 

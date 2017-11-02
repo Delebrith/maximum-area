@@ -1,8 +1,8 @@
+import core.VectorGenerator;
 import junit.framework.TestCase;
 import model.Vector;
 import org.junit.Before;
 import org.junit.Test;
-import utils.VectorGenerator;
 
 import java.util.ArrayList;
 

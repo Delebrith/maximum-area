@@ -11,4 +11,5 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileFiles("libs/vectorgenerator-1.0.0.jar")
 }
