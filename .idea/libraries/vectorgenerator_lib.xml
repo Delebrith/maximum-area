@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="vectorgenerator-1.0.0">
+  <library name="vectorgenerator-lib">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/vectorgenerator-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/vectorgenerator-lib.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

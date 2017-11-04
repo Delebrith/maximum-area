@@ -61,4 +61,7 @@ public class Polygon {
         return (Math.abs(area)/2);
     }
 
+    public List<Vertex> getVertices() {
+        return vertices;
+    }
 }

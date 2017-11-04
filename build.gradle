@@ -1,15 +1,27 @@
 group 'pw.edu'
-version '1.0.0'
+version 'ui-1.0.0'
 
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
+buildscript {
 
-repositories {
-    mavenCentral()
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    }
+    repositories {
+        mavenCentral()
+    }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compileFiles("libs/vectorgenerator-lib.jar")
+    compile files("libs/vectorgenerator-lib.jar")
+}
+
+apply plugin: 'javafx-gradle-plugin'
+
+jfx{
+    mainClass = 'Main'
+    vendor = 'Delebrith'
 }

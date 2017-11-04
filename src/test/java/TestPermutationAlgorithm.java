@@ -2,6 +2,7 @@ import junit.framework.TestCase;
 import model.Vector;
 import org.junit.Before;
 import org.junit.Test;
+import solution.PermutationAlgorithm;
 
 import java.util.ArrayList;
 
