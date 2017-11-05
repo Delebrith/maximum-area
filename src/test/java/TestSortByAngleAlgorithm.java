@@ -2,6 +2,8 @@ import junit.framework.TestCase;
 import model.Vector;
 import org.junit.Before;
 import org.junit.Test;
+import solutions.PermutationAlgorithm;
+import solutions.SortByAngleAlgorithm;
 import utils.VectorGenerator;
 
 import java.util.ArrayList;
@@ -67,7 +69,7 @@ public class TestSortByAngleAlgorithm {
         sortByAngleAlgorithm.findBestOrder();
 
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(hexagon);
-        permutationAlgorithm.findBestPermutation();
+        permutationAlgorithm.findBestPermutation(true);
 
         TestCase.assertTrue(contains(permutationAlgorithm, sortByAngleAlgorithm));
         TestCase.assertEquals(sortByAngleAlgorithm.getMaxArea(), HEXAGON_AREA);
@@ -77,7 +79,7 @@ public class TestSortByAngleAlgorithm {
     public void twoIdenticalVectorsTest(){
 
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(sixVectorsPolygon);
-        permutationAlgorithm.findBestPermutation();
+        permutationAlgorithm.findBestPermutation(true);
 
         SortByAngleAlgorithm sortByAngleAlgorithm = new SortByAngleAlgorithm(sixVectorsPolygon);
         sortByAngleAlgorithm.findBestOrder();
@@ -93,7 +95,7 @@ public class TestSortByAngleAlgorithm {
 
 
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(polygon);
-        permutationAlgorithm.findBestPermutation();
+        permutationAlgorithm.findBestPermutation(true);
 
         SortByAngleAlgorithm sortByAngleAlgorithm = new SortByAngleAlgorithm(polygon);
         sortByAngleAlgorithm.findBestOrder();

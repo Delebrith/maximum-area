@@ -1,5 +1,5 @@
 group 'pw.edu'
-version 'tests-plus-logger'
+version 'master'
 
 apply plugin: 'java'
 

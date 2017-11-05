@@ -1,15 +1,19 @@
 package utils;
 
-import config.LoggerConfig;
 import model.Vector;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class VectorGenerator {
+
+    private final Logger LOGGER = Logger.getLogger("Logger");
 
     private static final double MIN = -10;
     private static final double MAX = 10;
@@ -33,13 +37,13 @@ public class VectorGenerator {
                 writer.write(vectors.get(i).getxSteps() + " " + vectors.get(i).getySteps() + "\n");
             }
         } catch (IOException e) {
-            LoggerConfig.LOGGER.log(Level.FINER, e.getMessage());
+            LOGGER.log(Level.FINER, e.getMessage());
         } finally {
             if (writer != null){
                 try {
                     writer.close();
                 } catch (IOException e) {
-                    LoggerConfig.LOGGER.log(Level.FINER, e.getMessage());
+                    LOGGER.log(Level.FINER, e.getMessage());
                 }
             }
         }

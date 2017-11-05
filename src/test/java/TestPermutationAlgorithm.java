@@ -2,6 +2,7 @@ import junit.framework.TestCase;
 import model.Vector;
 import org.junit.Before;
 import org.junit.Test;
+import solutions.PermutationAlgorithm;
 
 import java.util.ArrayList;
 
@@ -41,7 +42,7 @@ public class TestPermutationAlgorithm {
         ArrayList<Vector> result = new ArrayList<>(hexagon);
 
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(hexagon);
-        permutationAlgorithm.findBestPermutation();
+        permutationAlgorithm.findBestPermutation(true);
 
         TestCase.assertTrue(permutationAlgorithm.getAcceptablePermutations().contains(result));
         TestCase.assertEquals(permutationAlgorithm.getMaxArea(), HEXAGON_AREA);
@@ -58,7 +59,7 @@ public class TestPermutationAlgorithm {
         result.add(vectorE);
 
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(sixVectorsPolygon);
-        permutationAlgorithm.findBestPermutation();
+        permutationAlgorithm.findBestPermutation(true);
 
         TestCase.assertTrue(permutationAlgorithm.getAcceptablePermutations().contains(result));
         TestCase.assertEquals(permutationAlgorithm.getMaxArea(), POLYGON_AREA);
