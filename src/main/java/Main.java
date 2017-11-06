@@ -2,6 +2,7 @@ import model.Vector;
 import solutions.PermutationAlgorithm;
 import solutions.SortByAngleAlgorithm;
 import utils.DataParser;
+import utils.TimeMeasurement;
 
 import java.util.ArrayList;
 
@@ -64,6 +65,41 @@ public class Main {
             return;
         }
 
+        if (args[0].equals("m3")){
+            int startAmount;
+            int maxAmount;
+            int loops;
+
+            if (args.length < 4){
+                return;
+            }
+
+            startAmount = Integer.parseInt(args[1]);
+            maxAmount = Integer.parseInt(args[2]);
+            loops = Integer.parseInt(args[3]);
+
+            TimeMeasurement timeMeasurement = new TimeMeasurement(startAmount, maxAmount, loops);
+            timeMeasurement.doMeasurements();
+            return;
+        }
+
+        if (args[0].equals("m4")){
+            int startAmount;
+            int maxAmount;
+            int loops;
+
+            if (args.length < 4){
+                return;
+            }
+
+            startAmount = Integer.parseInt(args[1]);
+            maxAmount = Integer.parseInt(args[2]);
+            loops = Integer.parseInt(args[3]);
+
+            TimeMeasurement timeMeasurement = new TimeMeasurement(startAmount, maxAmount, loops);
+            timeMeasurement.doSortingMeasurement();
+            return;
+        }
 
     }
 }

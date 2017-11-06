@@ -36,7 +36,8 @@ public class TimeMeasurement {
 
             for (int i = startAmount; i <= maxAmount; i++){
                 for (int j = 0; j < loopsForAmount; j++){
-                    measureTime(i);
+                    measurePermutationsTime(i);
+                    measureSortingTime(i);
                 }
                 averagePermutationsTime /= loopsForAmount;
                 averageSortingTime /= loopsForAmount;
@@ -53,20 +54,51 @@ public class TimeMeasurement {
 
     }
 
-    private void measureTime(int currentNumberOfVectors){
+    private void measurePermutationsTime(int currentNumberOfVectors){
         VectorGenerator generator = new VectorGenerator(currentNumberOfVectors);
         ArrayList<Vector> vectors = generator.generateList();
         PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(vectors);
-        SortByAngleAlgorithm sortByAngleAlgorithm = new SortByAngleAlgorithm(vectors);
 
         long start = System.currentTimeMillis();
         permutationAlgorithm.findBestPermutation(false);
         long stop = System.currentTimeMillis();
         averagePermutationsTime += (stop - start);
+    }
 
-        start = System.currentTimeMillis();
+    private void measureSortingTime(int currentNumberOfVectors){
+
+        VectorGenerator generator = new VectorGenerator(currentNumberOfVectors);
+        ArrayList<Vector> vectors = generator.generateList();
+        SortByAngleAlgorithm sortByAngleAlgorithm = new SortByAngleAlgorithm(vectors);
+
+        long start = System.currentTimeMillis();
         sortByAngleAlgorithm.findBestOrder();
-        stop = System.currentTimeMillis();
+        long stop = System.currentTimeMillis();
         averageSortingTime += (stop - start);
     }
+
+    public void doSortingMeasurement(){
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("sorting_" + FILE_NAME, "UTF-8");
+            writer.println("amount\tsorting time");
+
+            for (int i = startAmount; i <= maxAmount; i++){
+                for (int j = 0; j < loopsForAmount; j++){
+                    measureSortingTime(i);
+                }
+                averageSortingTime /= loopsForAmount;
+                writer.println(i + "\t"  + "\t" + averageSortingTime);
+            }
+
+        } catch (FileNotFoundException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        if (writer != null){
+            writer.close();
+        }
+    }
+
+
 }
