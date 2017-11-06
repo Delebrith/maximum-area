@@ -49,7 +49,7 @@ public class VectorGenerator {
         }
     }
 
-    public ArrayList generateList(){
+    public ArrayList<Vector> generateList(){
         ArrayList<Vector> vectorList = new ArrayList<>();
         for (int i = 0; i < amount; i++){
             double x  = ThreadLocalRandom.current().nextDouble(MIN, MAX);
