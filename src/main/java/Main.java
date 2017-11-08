@@ -83,6 +83,8 @@ public class Main {
             loops = Integer.parseInt(args[3]);
 
             TimeMeasurement timeMeasurement = new TimeMeasurement(startAmount, maxAmount, loops);
+            timeMeasurement.warmup();
+
             timeMeasurement.doMeasurements();
             return;
         }
@@ -102,8 +104,9 @@ public class Main {
             loops = Integer.parseInt(args[3]);
 
             TimeMeasurement timeMeasurement = new TimeMeasurement(startAmount, maxAmount, loops);
+            timeMeasurement.warmup();
+
             timeMeasurement.doSortingMeasurement();
-            return;
         }
 
     }

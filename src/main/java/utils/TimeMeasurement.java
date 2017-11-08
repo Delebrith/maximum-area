@@ -29,6 +29,8 @@ public class TimeMeasurement {
     }
 
     public void doMeasurements(){
+        System.out.println("Starting measurement...");
+
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(FILE_NAME, "UTF-8");
@@ -51,6 +53,7 @@ public class TimeMeasurement {
         if (writer != null){
             writer.close();
         }
+        System.out.println("Measurements finished! Check out results in results.txt");
 
     }
 
@@ -78,6 +81,7 @@ public class TimeMeasurement {
     }
 
     public void doSortingMeasurement(){
+        System.out.println("Starting measurement...");
         PrintWriter writer = null;
         try {
             writer = new PrintWriter("sorting_" + FILE_NAME, "UTF-8");
@@ -98,7 +102,19 @@ public class TimeMeasurement {
         if (writer != null){
             writer.close();
         }
+        System.out.println("Measurements finished! Check out results in sorting_results.txt");
     }
 
+    public void warmup(){
+        System.out.println("Warming up JVM...");
+        for (int i = 3; i < 7; i++){
+            for (int j = 0; j < 5; j++){
+                measurePermutationsTime(i);
+                measureSortingTime(i);
+            }
+        }
+        averageSortingTime = 0;
+        averagePermutationsTime = 0;
+    }
 
 }

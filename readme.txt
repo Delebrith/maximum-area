@@ -85,4 +85,6 @@ for presented solutions.
 4# exceptions
 Package contains one custom exception.
 
+*Version with gui has one additional package with classes implementing UI
+
 
