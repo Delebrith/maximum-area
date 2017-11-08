@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="max-area">
+    <output-path>$PROJECT_DIR$/out/artifacts/max-area</output-path>
+    <root id="archive" name="max-area.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="directory" name="res">
+        <element id="file-copy" path="$PROJECT_DIR$/res/plane.png" />
+      </element>
+      <element id="module-output" name="max-area" />
+    </root>
+  </artifact>
+</component>
