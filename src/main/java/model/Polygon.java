@@ -8,18 +8,20 @@ import java.util.List;
 
 public class Polygon {
 
-    private List<Vertex> vertices = new ArrayList<>();
+    private List<Vertex> vertices;
 
     public Polygon(List<Vector> vectors) throws NotAPolygonException {
-        int notAddedVertices = 0;
+        vertices = new ArrayList<>();
         vertices.add(new Vertex(0,0));
 
         for (int i = 0; i < vectors.size(); i++) {
+            //calculate vector's coordinates
             if (i != 0){
                 vectors.get(i).setxStart(vectors.get(i-1).getxStart() + vectors.get(i-1).getxSteps());
                 vectors.get(i).setyStart(vectors.get(i-1).getyStart() + vectors.get(i-1).getySteps());
             }
 
+            //check if currently analysed vector crosses with any of previously added to polygon
             if (vertices.size() > 2) {
                 LineSegment addedLineSegment = new LineSegment(vectors.get(i).getxStart(), vectors.get(i).getyStart(),
                         vectors.get(i).getxStart() + vectors.get(i).getxSteps(),
@@ -41,8 +43,8 @@ public class Polygon {
                 }
             }
 
-            vertices.add(new Vertex(vertices.get(i-notAddedVertices).getX() + vectors.get(i).getxSteps(),
-                    vertices.get(i-notAddedVertices).getY() + vectors.get(i).getySteps()));
+            vertices.add(new Vertex(vertices.get(i).getX() + vectors.get(i).getxSteps(),
+                    vertices.get(i).getY() + vectors.get(i).getySteps()));
         }
     }
 

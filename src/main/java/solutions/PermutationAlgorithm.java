@@ -10,14 +10,17 @@ import java.util.List;
 public class PermutationAlgorithm {
 
     private List<Vector> vectors;
-    private List<List<Vector>> permutations = new ArrayList<>();
+    private List<List<Vector>> permutations;
     private List<Vector> bestPermutation;
     private double maxArea;
 
-    private List<List<Vector>> acceptablePermutations = new ArrayList<>();
+    private List<List<Vector>> acceptablePermutations;
 
     public PermutationAlgorithm(List<Vector> vectors) {
         this.vectors = vectors;
+        permutations = new ArrayList<>();
+        bestPermutation = new ArrayList<>();
+        acceptablePermutations = new ArrayList<>();
         maxArea = 0;
     }
 
@@ -29,8 +32,11 @@ public class PermutationAlgorithm {
         return maxArea;
     }
 
+    /**
+     * @param findAll if true all permutations for result with biggest area are found. If false, only one.
+     */
     public void findBestPermutation(boolean findAll){
-        permute(vectors, 0);
+        permute(vectors, 0);    //prepare permutations for analysis
         for (List<Vector> list : permutations) {
             try {
                 Polygon polygon = new Polygon(list);
@@ -69,7 +75,7 @@ public class PermutationAlgorithm {
         System.out.println("Acceptable permutations: \n" + builder.toString());
     }
 
-    public void pribtBestPermutation(){
+    public void printBestPermutation(){
         StringBuilder builder = new StringBuilder();
         for (Vector aBestPermutation : bestPermutation) {
             builder.append(aBestPermutation.getName() + " ");

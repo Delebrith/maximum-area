@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="maximum-area-executable">
+    <output-path>$PROJECT_DIR$/out/artifacts/maximum_area_executable</output-path>
+    <root id="archive" name="maximum-area-executable.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="aal" />
+      <element id="module-output" name="aal_main" />
+    </root>
+  </artifact>
+</component>

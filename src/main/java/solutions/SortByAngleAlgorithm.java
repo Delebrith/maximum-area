@@ -17,6 +17,7 @@ public class SortByAngleAlgorithm {
 
     public SortByAngleAlgorithm(List<Vector> vectorList) {
         this.vectorList = vectorList;
+        bestOrder = new ArrayList<>();
     }
 
     public List<Vector> getBestOrder() {

@@ -11,14 +11,15 @@ public class Main {
     /**
      * @param args
      * arg[0] - mode. m1 for reading data from file. m2 for reading data from input stream. m3 for generating
-     * data inside the programme and time measurment
+     * data inside the programme and time measurement. m4 for measurements of sorting algorithm only.
      *
      * <p>Extra params: <br>
      * For m1:
      * <ul>
      *     <li>name of file</li>
      * </ul>
-     * For m3:
+     * For m2: no additional arguments <br>
+     * For m3 and m4:
      * <ul>
      *     <li>start amount of vectors (min 2)</li>
      *     <li>maximum amount of vectors (best less than 11)</li>
@@ -43,6 +44,7 @@ public class Main {
             PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(vectors);
             permutationAlgorithm.findBestPermutation(true);
             permutationAlgorithm.printAcceptablePermutations();
+            permutationAlgorithm.printBestPermutation();
 
             SortByAngleAlgorithm sortByAngleAlgorithm = new SortByAngleAlgorithm(vectors);
             sortByAngleAlgorithm.findBestOrder();
@@ -57,6 +59,7 @@ public class Main {
             PermutationAlgorithm permutationAlgorithm = new PermutationAlgorithm(vectors);
             permutationAlgorithm.findBestPermutation(true);
             permutationAlgorithm.printAcceptablePermutations();
+            permutationAlgorithm.printBestPermutation();
 
             SortByAngleAlgorithm sortByAngleAlgorithm = new SortByAngleAlgorithm(vectors);
             sortByAngleAlgorithm.findBestOrder();
@@ -71,6 +74,7 @@ public class Main {
             int loops;
 
             if (args.length < 4){
+                System.out.println("Missing arguments!");
                 return;
             }
 
@@ -89,6 +93,7 @@ public class Main {
             int loops;
 
             if (args.length < 4){
+                System.out.println("Missing arguments!");
                 return;
             }
 
