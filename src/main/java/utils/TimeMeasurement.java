@@ -44,6 +44,7 @@ public class TimeMeasurement {
                 averagePermutationsTime /= loopsForAmount;
                 averageSortingTime /= loopsForAmount;
                 writer.println(i + "\t" + averagePermutationsTime + "\t" + averageSortingTime);
+                System.out.println(i + "\t" + averagePermutationsTime + "\t" + averageSortingTime);
             }
 
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
@@ -93,6 +94,7 @@ public class TimeMeasurement {
                 }
                 averageSortingTime /= loopsForAmount;
                 writer.println(i + "\t"  + "\t" + averageSortingTime);
+                System.out.println(i + "\t"  + "\t" + averageSortingTime);
             }
 
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
@@ -107,8 +109,8 @@ public class TimeMeasurement {
 
     public void warmup(){
         System.out.println("Warming up JVM...");
-        for (int i = 3; i < 8; i++){
-            for (int j = 0; j < 20; j++){
+        for (int i = 3; i < 10; i++){
+            for (int j = 0; j < 10; j++){
                 measurePermutationsTime(i);
                 measureSortingTime(i);
             }
