@@ -94,7 +94,7 @@ public class TimeMeasurement {
                 }
                 averageSortingTime /= loopsForAmount;
                 writer.println(i + "\t"  + "\t" + averageSortingTime);
-                System.out.println(i + "\t"  + "\t" + averageSortingTime);
+                System.out.println(i + "\t"  + "\t" + averageSortingTime );
             }
 
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
