@@ -107,8 +107,8 @@ public class TimeMeasurement {
 
     public void warmup(){
         System.out.println("Warming up JVM...");
-        for (int i = 3; i < 7; i++){
-            for (int j = 0; j < 5; j++){
+        for (int i = 3; i < 8; i++){
+            for (int j = 0; j < 20; j++){
                 measurePermutationsTime(i);
                 measureSortingTime(i);
             }
@@ -118,3 +118,4 @@ public class TimeMeasurement {
     }
 
 }
+
